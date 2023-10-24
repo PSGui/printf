@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsaladri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/24 12:26:23 by gsaladri          #+#    #+#             */
+/*   Updated: 2023/10/24 12:26:23 by gsaladri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static void     ft_hexa_helper(unsigned int n, char uplow, int *contagem)
+static void	ft_hexa_helper(unsigned int n, char uplow, int *contagem)
 {
 	char	*low;
 	char	*upp;
@@ -16,21 +28,21 @@ static void     ft_hexa_helper(unsigned int n, char uplow, int *contagem)
 	{
 		write(1, &upp[n], 1);
 		*contagem += 1;
-		return ;
 	}
-	write(1, &low[n], 1);
-	*contagem += 1;
+	else
+	{
+		write(1, &low[n], 1);
+		*contagem += 1;
+	}
 }
 
-void	ft_hexa(unsigned int nbr, const char *uplow, int *contagem)
+void	ft_hexa(unsigned int nbr, char uplow, int *contagem)
 {
-        int     nums_printed;
-
 	if (nbr == 0)
 	{
 		write(1, "0", 1);
-		*count += 1;
+		*contagem += 1;
 		return ;
 	}
-        dec_to_hexa(nbr, uplow, count);
+	ft_hexa_helper(nbr, uplow, contagem);
 }
