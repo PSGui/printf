@@ -14,18 +14,15 @@
 
 void	ft_str(char *s, int *contagem)
 {
-	int	i;
-
-	i = 0;
-	if (*s != 0)
+	if (s == NULL)
 	{
-		while (s[i] != '\0')
-		{
-			write(1, &s[i], 1);
-			i++;
-			*contagem += 1;
-		}
+		write(1, "(null)", 6);
+		*contagem += 6;
+		return ;
 	}
-	else
-		*contagem += write(1, "(null)", 6);
+	while (*s)
+	{
+		ft_char(((char)*s), contagem);
+		s++;
+	}
 }
