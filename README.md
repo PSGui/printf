@@ -19,3 +19,5 @@ The function works with:
 -%p        ---> Print a pointer address;
 
 -%%        ---> The hardest one... print a percent sign;
+
+This project was graded 100/100!
